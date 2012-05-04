@@ -1,0 +1,44 @@
+<body background='<%= asset_path 'mainback.png' %>'>
+
+<p id="notice"><%= notice %></p>
+
+<h1>
+ 
+  <%= @user.username %>'s Profile
+
+</h1>
+ email: <%= @user.email %>
+   <hr size=2 width=60%>
+	<h2><b> <%= @user.username %>'s Friends </b>
+	 <br></h2> 
+	   <hr size=1 width=20%>
+	
+
+  <% @user.friends.each do |friend| %>    
+	<br>	
+	 
+	<b>Name: </b><%= friend.username %>
+	<%= link_to "Visit Profile ", { :controller => "users", :action => "show", :id => friend.id } %> 
+	<br>	
+	<% end %>  
+	 <hr size=1 width=20%>
+	
+<h2> <%= @user.username %>'s Posts</h2>
+<% @user.posts.each do |post| %>
+<b><%= link_to post.title, { :controller => "posts", :action => "show", :id => post.id } %> </b>
+ <i> ( Posted <%= time_ago_in_words post.created_at %> ago ) </i></p> 
+ 	<% if post.photo.exists? then %>
+<p><%= image_tag post.photo.url(:medium) %></p>
+<% else %>
+<p> There are no photo's attached, upload one. </p>
+<% end %>
+ <hr size=1 width=20%>
+<% end %>
+	
+	
+   
+<br>
+<br>
+<%= link_to 'Back', posts_path %>
+
+

@@ -1,0 +1,49 @@
+
+<div style="color: #030303; position:absolute; top:50px; left:340px; ">
+<h1> <%= @post.title %> </h1>
+</div>
+
+
+<body background='<%= asset_path 'view.png' %>'>
+
+<div style="position:absolute; top:95px; left:134px;">
+
+<% if @post.photo.exists? then %>
+<p><%= image_tag @post.photo.url(:large) %></p>
+<% end %>
+
+</div>
+
+<div style=" color:white; position:absolute; top:100px; left:800px;">
+<h2> Comments </h2>
+
+<% @post.comments.each do |comment| %>
+<p><%= comment.text %></p>
+<p><%= time_ago_in_words comment.created_at %> ago</p>
+
+<p><%= link_to "Delete Comment", [@post, comment], :method => :delete, :confirm => "Are you sure?" %> </p>
+<% end %>
+
+
+<%= form_for [@post, @post.comments.build] do |f| %>
+	<p> <%= f.text_area :text, :size => '40x10' %> </p>
+
+	<p> <%= f.submit "Post comment" %> </p> 
+<% end %>
+</div>
+<p>
+
+
+<div style="position:absolute; top:650px; left:340px;">
+<%= link_to "Back" , posts_path %>
+|
+<%= link_to "Edit", edit_post_path(@post) %>
+<% if (@post.user==current_user) %>
+|
+<%= link_to "Delete", @post, :method => :delete, :confirm => "Are you sure?" %>
+</div>
+<% end %>
+
+</p>
+
+<body background='<%= asset_path 'view.png' %>'>

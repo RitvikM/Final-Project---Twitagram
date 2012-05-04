@@ -1,0 +1,14 @@
+development:
+  bucket: twitagram-dev
+  access_key_id: AKIAIEL3GTMABGDRTDIA
+  secret_access_key: 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
+
+test:
+  bucket: twitagram-test
+  access_key_id: AKIAIEL3GTMABGDRTDIA
+  secret_access_key: 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
+
+production:
+  bucket: twitagram-pro
+  access_key_id: AKIAIEL3GTMABGDRTDIA
+  secret_access_key: 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

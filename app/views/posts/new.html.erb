@@ -1,0 +1,14 @@
+<br><br><br>
+<body background='<%= asset_path 'mainback.png' %>'>
+<h1>New Image</h1>
+
+
+<br><br><br><br><br><br>
+<%= render 'form' %>
+
+<% form_for(@post,:html => { :multipart => true }) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
+
+<br><br>
+<%= link_to 'Back', posts_path %>

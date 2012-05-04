@@ -1,0 +1,26 @@
+<body background='<%= asset_path 'mainback.png' %>'>
+
+<h1> Welcome to Twitagram </h1>
+
+
+
+<% @posts.reverse.each do |post| %>
+	<h2 > <%= link_to post.title, post %> </h2> 
+	
+<% if post.photo.exists? then %>
+<p><%= image_tag post.photo.url(:medium) %></p>
+<% else %>
+<p> There are no photo's attached, upload one. </p>
+<% end %>
+				
+	<i>
+	Posted By:
+	
+	<%= link_to post.user.username , { :controller => "users", :action => "show", :id => post.user.id } %> 
+	<%= time_ago_in_words post.created_at %> ago
+	</i>
+
+<% end  %>	
+
+
+

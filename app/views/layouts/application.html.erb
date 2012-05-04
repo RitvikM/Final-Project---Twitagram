@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>Twitagram</title>
+  <%= stylesheet_link_tag    "layout" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    <%= auto_discovery_link_tag :atom, "/posts.atom" %>
+</head>
+<body>
+
+<div style="color: white; position:absolute; top:06px; left:1110px; ">
+<% if user_signed_in? %>
+	<%= "  Current User :  " + current_user.username %> <br>
+	<%= "         " %> 
+
+<div style= a:link {color:white}; } ">
+<%=	link_to 'Logout',
+		destroy_user_session_path,
+		method: :delete %>
+</div>
+</div>
+
+<div style="color: white; position:absolute; top:60px; left:10px;  ">		
+<br>
+<%= link_to "Post" , new_post_path %>
+<br><br>
+<%= link_to "My Friends", { :controller => "users", :action => "show", :id => current_user } %>  
+<br><br>
+<%= link_to "All Users" , users_path %>
+<br><br>
+<%= link_to "Stream" , posts_path %>
+</div>
+
+
+<% end %>
+
+
+</div>
+
+
+
+
+<%= yield %>
+
+</body>
+</html>

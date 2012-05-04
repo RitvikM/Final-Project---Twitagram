@@ -1,0 +1,29 @@
+<body background='<%= asset_path 'mainback.png' %>'>
+
+
+<h1> WELCOME TO TWITAGRAM! </h1>
+<br><br><br>
+<h2>Sign in</h2>
+
+<div style="position:absolute; top:0px; left:0px;">
+<img src="<%= asset_path 'sidecover.png' %>" alt="Cover" /> 
+</div>
+
+
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <br>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+<br>
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+<br>
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+<br>
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<%= render "links" %>

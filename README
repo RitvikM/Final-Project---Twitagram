@@ -1,5 +1,23 @@
-Issues: 
+Twitagram!
+heroku link: http://twitagram.herokuapp.com
+github: repo https://github.com/RitvikM/Final-Project---Twitagram
 
-Stream should show most recent ones first
-Profiles should show the posts you made
-Add add friend button to friend's profiles
+
+Final Ruby on Rails project :
+
+I talked to Matt and decided to change the idea which i proposed in the midterm.
+
+This application is meant to be a cross of twitter and instagram, where users can post images and write a caption for each.
+Users can add friends. Being friends is a one-way relationship, you don't need the other person to confirm the relationship to be friends with someone
+Its a bit like follow. 
+
+On the my Friends page you can see your own posts and the friends you have
+On the All users page you can see a list of all the users who use the app and you can add them as friends
+
+All basic features are complete. the only bug at the moment is the fact that you can add friends twice
+which makes them appear on friends list more than once. If i had more time i would have implemented 
+the ImageMagick gem to try and add filters to the images Instagram-style, but I couldnt figure it out. 
+
+Thanks!
+
+
